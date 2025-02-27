@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"  // Compatible con MariaDB
+  url      = env("DATABASE_URL")  // Variable de entorno para la conexión
+}
+
+enum TipoDinosaurio {
+  HERBIVORO
+  CARNIVORO
+  OMNIVORO
+}
+
+model Usuario {
+  id          Int        @id @default(autoincrement())
+  nombre      String
+  email       String     @unique
+  contraseña  String
+  puntajes    Puntaje[]
+  desbloqueos Desbloqueo[]
+}
+
+model Juego {
+  id          Int        @id @default(autoincrement())
+  nombre      String
+  descripcion String
+  puntajes    Puntaje[]
+}
+
+model Puntaje {
+  id        Int      @id @default(autoincrement())
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  juego     Juego    @relation(fields: [juegoId], references: [id])
+  juegoId   Int
+  puntuacion Int
+  fecha     DateTime @default(now())
+}
+
+model Dinosaurio {
+  id          Int            @id @default(autoincrement())
+  nombre      String
+  tipo        TipoDinosaurio
+  descripcion String
+  imagen3D    String
+  desbloqueos Desbloqueo[]
+}
+
+model Desbloqueo {
+  id             Int        @id @default(autoincrement())
+  usuario        Usuario    @relation(fields: [usuarioId], references: [id])
+  usuarioId      Int
+  dinosaurio     Dinosaurio @relation(fields: [dinosaurioId], references: [id])
+  dinosaurioId   Int
+  fechaDesbloqueo DateTime  @default(now())
+}
