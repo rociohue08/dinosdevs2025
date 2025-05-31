@@ -1,4 +1,93 @@
+
+----------------------------------------
+
+# Backend - Proyecto Dinosaurios
+
 <p align="center">
+  <a href="http://nestjs.com/" target="_blank"><img src="https://nestjs.com/img/logo-small.svg " width="120" alt="Nest Logo" /></a>
+</p>
+
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456   
+[circleci-url]: https://circleci.com/gh/nestjs/nest   
+
+<p align="center">Proyecto backend del sistema "Dinosaurios", desarrollado con <a href="http://nodejs.org" target="_blank">Node.js</a> y <a href="https://nestjs.com " target="_blank">NestJS</a>.</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/~nestjscore " target="_blank"><img src="https://img.shields.io/npm/v/ @nestjs/core.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/~nestjscore " target="_blank"><img src="https://img.shields.io/npm/l/ @nestjs/core.svg" alt="Package License" /></a>
+  <a href="https://www.npmjs.com/~nestjscore " target="_blank"><img src="https://img.shields.io/npm/dm/ @nestjs/common.svg" alt="NPM Downloads" /></a>
+  <a href="https://circleci.com/gh/nestjs/nest " target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master " alt="CircleCI" /></a>
+  <a href="https://coveralls.io/github/nestjs/nest?branch=master " target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master #9" alt="Coverage" /></a>
+  <a href="https://discord.gg/G7Qnnhy " target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg " alt="Discord"/></a>
+  <a href="https://opencollective.com/nest #backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg " alt="Backers on Open Collective" /></a>
+  <a href="https://opencollective.com/nest #sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg " alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec " target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg " alt="Donate us"/></a>
+  <a href="https://opencollective.com/nest #sponsor" target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg " alt="Support us"></a>
+  <a href="https://twitter.com/nestframework " target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow " alt="Follow us on Twitter"></a>
+</p>
+
+---
+
+## Descripción
+
+Este es el backend del sistema "Dinosaurios", construido con [NestJS](https://nestjs.com ), un framework moderno basado en TypeScript. Incluye:
+
+- Autenticación JWT  
+- Conexión a base de datos MySQL usando Prisma ORM  
+- Envío de correos con Nodemailer  
+- Documentación automática con Swagger  
+
+Este repositorio contiene todo lo necesario para levantar el backend localmente o desplegarlo en producción.
+
+---
+
+## Requisitos previos
+
+Asegúrate de tener instalado lo siguiente antes de comenzar:
+
+- Node.js v16 o superior  
+- npm (viene con Node.js)  
+- MySQL instalado y corriendo localmente  
+-npm install -g @nestjs/cli prisma
+
+---
+
+## Configuración del Proyecto
+
+### 1. Instalar dependencias
+
+Ejecuta el siguiente comando para instalar las dependencias (recorda tambien haberlo hecho en la carpeta principal y en la de front)
+
+```bash
+npm install
+
+###2. Configurar variables de entorno
+Crear un archivo .env basado en el ejemplo proporcionado
+cp .env.example .env
+###Base de datos 
+El proyecto usa MySql como motor de base de datos para configurarlo
+1.tener MYSQL corriendo
+2.accede al cliente de MYSQL
+mysql -u root –p
+3.crear BD
+CREATE DATABASE dinosaurios_db;
+4.aplicar migración con prima
+npx prisma migrate dev
+###Ejecuta el proyecto con 
+npm run start
+
+### La API estará disponible en
+http://localhost:4000
+###La documentación de la misma estara disponible en
+http://localhost:4000/api
+
+
+
+
+
+
+
+<!-- <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
@@ -21,7 +110,7 @@
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
+<!-- 
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
@@ -97,3 +186,5 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+ -->
+ -->

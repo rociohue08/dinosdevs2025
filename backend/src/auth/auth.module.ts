@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
+import { MailService } from '../mail/mail.service';
 /* Importación de JwtModule: Es necesario importar JwtModule para poder generar y verificar tokens JWT.
- */import { JwtModule } from '@nestjs/jwt'; // Importa el JwtModule
+ */import { JwtModule } from '@nestjs/jwt';
 /*  importacion de ConfigService para usarlo y acceder a las variables de entorno.
  */ import { ConfigModule, ConfigService } from '@nestjs/config'; // Importa ConfigService
 
@@ -16,10 +17,9 @@ import { AuthController } from './auth.controller';
       },
     }),
   ],
-
-
   controllers: [AuthController], // Controlador de autenticación
-  providers: [AuthService], // Servicio de autenticación
+  providers: [AuthService,MailService],
+  exports:[AuthService,MailService]
 })
 export class AuthModule {}
 

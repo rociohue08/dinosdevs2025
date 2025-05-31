@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { PrismaModule } from './prisma/prisma.module';
+import { PrismaModule } from '../prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config'; // Importa el módulo de configuración
-import { AuthModule } from '../src/auth/auth.module'; // Importa el módulo de autenticación
-import { UsersModule } from '../src/users/users.module'; 
+import { AuthModule } from './auth/auth.module'; // Importa el módulo de autenticación
+import { UsersModule } from './users/users.module'; 
+import { MailModule } from './mail/mail.module';
 /* import { DinosaursModule } from '../src/dinosaurs/dinosaurs.module';
 import { RankingsModule } from './rankings/rankings.module';
 import { JuegosModule } from './juegos/juegos.module'; */
@@ -15,6 +16,7 @@ import { JuegosModule } from './juegos/juegos.module'; */
     PrismaModule, 
     AuthModule, 
     UsersModule,
+    MailModule,
    /*  DinosaursModule,
     RankingsModule,
     JuegosModule, */

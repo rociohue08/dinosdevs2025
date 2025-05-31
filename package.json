@@ -6,6 +6,7 @@
   "start": "concurrently \"npm run start:backend\" \"npm run dev --prefix frontend\"",
   "start:backend": "cd backend && npm run start",
   "start:frontend": "cd frontend && npm run dev"
+  
 },
   "keywords": [],
   "author": "",
@@ -14,4 +15,5 @@
   "devDependencies": {
     "concurrently": "^8.0.0"
   }
+  
 }

@@ -1,33 +1,40 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'prisma/prisma.service'; 
 import * as bcrypt from 'bcryptjs'; // Necesario para la comparación de contraseñas
 
 @Injectable()
 export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
-  // Obtener un usuario por su ID
- /*  async getUserById(id: number) {
-    return this.prisma.usuario.findUnique({
-      where: { id },
-    });
+   // Obtener todos los usuarios registrados
+  async getAllUsers() {
+    const users = await this.prisma.usuario.findMany();
+    console.log('Usuarios obtenidos:', users);  // Verifica si hay datos
+    return users;
   }
- */
 
+  // Obtener un usuario por su ID
   async getUserById(id: number) {
     return this.prisma.usuario.findUnique({
       where: { id }, 
     });
   }
 
-
   // Actualizar usuario
-  async updateUser(id: number, data: { nombre: string; email: string }) {
-    return this.prisma.usuario.update({
-      where: { id },
-      data,
-    });
-  }
+  async updateUser(id: number, data: { nombre?: string; email?: string }) {
+  return this.prisma.usuario.update({
+    where: { id },
+    data,
+  });
+}
+
+//borrar usuario esto es solo de prueba
+async deleteUser(id: number) {
+  return this.prisma.usuario.delete({
+    where: { id },
+  });
+}
+
 
   // Obtener el ranking de un usuario
   async getUserRanking(id: number) {
@@ -37,12 +44,7 @@ export class UsersService {
     });
   }
 
-  // Obtener todos los usuarios registrados
-  async getAllUsers() {
-    const users = await this.prisma.usuario.findMany();
-    console.log('Usuarios obtenidos:', users);  // Verifica si hay datos
-    return users;
-  }
+ 
 
   // Lógica de registro de un nuevo usuario
   async register(name: string, email: string, password: string) {
